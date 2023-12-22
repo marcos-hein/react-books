@@ -1,12 +1,13 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { PrivateRoutes } from './routes/PrivateRoute';
-import { Books, Login } from './pages';
+import { Books, BookDetails, Login } from './pages';
 import './App.css';
 
 function App() {
   const router = createBrowserRouter([
-    { path: '/', element: <PrivateRoutes component={Books} /> },
-    { path: '/login', element: <Login /> },
+    { path: '/', element: <Login /> },
+    { path: '/books', element: <PrivateRoutes component={Books} /> },
+    { path: '/books/:id', element: <PrivateRoutes component={BookDetails} /> },
     { path: '*', element: <PrivateRoutes component={Books} /> },
   ]);
 

@@ -47,7 +47,7 @@ export function Books() {
       <ul className="books__list">
         {books.map(({ author, id, imageUrl, title }: Book) => (
           <li key={id}>
-            <BookCard author={author} imageUrl={imageUrl} title={title} onDelete={() => handleDelete(id)} />
+            <BookCard id={id} author={author} imageUrl={imageUrl} title={title} onDelete={() => handleDelete(id)} />
           </li>
         ))}
       </ul>

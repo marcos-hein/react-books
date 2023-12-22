@@ -56,7 +56,7 @@ export function Login() {
     }
 
     dispatch(login(formData.username.value));
-    navigate('/');
+    navigate('/books');
   }
   return (
     <section className="login__container">

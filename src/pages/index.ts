@@ -1,2 +1,3 @@
-export * from './Books'
-export * from './Login'
+export * from './Books';
+export * from './BookDetails';
+export * from './Login';

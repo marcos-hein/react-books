@@ -13,5 +13,5 @@ export function PrivateRoutes({ component: RouteComponent }: PrivateRoutesProps)
     return <RouteComponent />;
   }
 
-  return <Navigate to="/login" />;
+  return <Navigate to="/" />;
 }

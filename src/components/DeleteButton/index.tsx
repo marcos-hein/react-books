@@ -6,8 +6,9 @@ type ButtonIconProps = {
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export function DeleteButton({ bookTitle, ...rest }: ButtonIconProps) {
+  const labelButton = `Excluir livro ${bookTitle}`;
   return (
-    <button className="deleteButton" aria-label={`Excluir livro ${bookTitle}`} {...rest}>
+    <button className="deleteButton" aria-label={labelButton} title={labelButton} {...rest}>
       <Trash2 />
     </button>
   );
