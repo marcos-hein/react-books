@@ -9,6 +9,7 @@ export type Book = {
   pageCount: number;
   imageUrl: string;
   summary: string;
+  rented: boolean;
 };
 
 export interface BooksState {
@@ -26,9 +27,13 @@ export const slice = createSlice({
     remove: (state, { payload: id }: PayloadAction<number>) => {
       state.list = state.list.filter((book) => book.id !== id);
     },
+    toggleBookRental: (state, { payload: id }: PayloadAction<number>) => {
+      const bookIndex = state.list.findIndex((book) => book.id === id);
+      state.list[bookIndex].rented = !state.list[bookIndex].rented;
+    },
   },
 });
 
-export const { remove } = slice.actions;
+export const { remove, toggleBookRental } = slice.actions;
 
 export default slice;
