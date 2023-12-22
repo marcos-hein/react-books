@@ -29,4 +29,4 @@ export const slice = createSlice({
 
 export const { } = slice.actions;
 
-export default slice.reducer;
+export default slice;

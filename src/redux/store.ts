@@ -4,8 +4,8 @@ import booksReducer from "./booksSlice";
 
 export const store = configureStore({
   reducer: {
-    auth: authReducer,
-    books: booksReducer,
+    auth: authReducer.reducer,
+    books: booksReducer.reducer,
   }
 });
 
