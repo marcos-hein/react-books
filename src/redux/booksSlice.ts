@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { BOOKS_MOCK } from "../../mocks/books.mock";
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { BOOKS_MOCK } from '../../mocks/books.mock';
 
 export type Book = {
   id: number;
@@ -9,24 +9,26 @@ export type Book = {
   pageCount: number;
   imageUrl: string;
   summary: string;
-}
+};
 
-interface BooksState {
+export interface BooksState {
   list: Book[];
 }
 
 const initialState: BooksState = {
-  list: BOOKS_MOCK
-}
+  list: BOOKS_MOCK,
+};
 
 export const slice = createSlice({
   name: 'books',
   initialState,
   reducers: {
+    remove: (state, { payload: id }: PayloadAction<number>) => {
+      state.list = state.list.filter((book) => book.id !== id);
+    },
+  },
+});
 
-  }
-})
-
-export const { } = slice.actions;
+export const { remove } = slice.actions;
 
 export default slice;
