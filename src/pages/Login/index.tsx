@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Input } from '../components/Input/Input';
 import { useDispatch } from 'react-redux';
-import { login } from '../redux/authSlice';
+import { login } from '../../redux/authSlice';
 import { useNavigate } from 'react-router-dom';
+import { Input } from '../../components';
 import './Login.css';
 
 export function Login() {
