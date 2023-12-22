@@ -24,6 +24,13 @@ export const slice = createSlice({
   name: 'books',
   initialState,
   reducers: {
+    create: (state, { payload: book }: PayloadAction<Omit<Book, 'rented'>>) => {
+      state.list.push({ ...book, rented: false });
+    },
+    edit: (state, { payload: book }: PayloadAction<Book>) => {
+      const bookIndex = state.list.findIndex((b) => b.id === book.id);
+      state.list[bookIndex] = book;
+    },
     remove: (state, { payload: id }: PayloadAction<number>) => {
       state.list = state.list.filter((book) => book.id !== id);
     },
@@ -34,6 +41,6 @@ export const slice = createSlice({
   },
 });
 
-export const { remove, toggleBookRental } = slice.actions;
+export const { create, edit, remove, toggleBookRental } = slice.actions;
 
 export default slice;
