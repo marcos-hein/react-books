@@ -1,7 +1,8 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { BOOKS_MOCK } from "../../mocks/books.mock";
 
 export type Book = {
+  id: number;
   title: string;
   author: string;
   releaseYear: number;
@@ -11,11 +12,11 @@ export type Book = {
 }
 
 interface BooksState {
-  books: Book[];
+  list: Book[];
 }
 
 const initialState: BooksState = {
-  books: BOOKS_MOCK
+  list: BOOKS_MOCK
 }
 
 export const slice = createSlice({
