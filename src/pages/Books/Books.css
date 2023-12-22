@@ -5,7 +5,13 @@
 
 .books__list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.5rem;
   margin-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+.books__list li {
+  display: flex;
+  justify-content: center;
 }

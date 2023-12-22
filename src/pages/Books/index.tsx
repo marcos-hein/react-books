@@ -1,14 +1,23 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../redux/store';
-import { Book } from '../../redux/booksSlice';
+import { Book, remove } from '../../redux/booksSlice';
 import { Input, BookCard } from '../../components';
 import './Books.css';
 
 export function Books() {
+  const dispatch = useDispatch();
   const stateBooks = useSelector((state: RootState) => state.books.list);
   const [books, setBooks] = useState<Book[]>(stateBooks);
   const [searchTerm, setSearchTerm] = useState<string>('');
+
+  function handleDelete(id: number) {
+    dispatch(remove(id));
+  }
+
+  useEffect(() => {
+    setBooks(stateBooks);
+  }, [stateBooks]);
 
   useEffect(() => {
     if (searchTerm !== '') {
@@ -38,7 +47,7 @@ export function Books() {
       <ul className="books__list">
         {books.map(({ author, id, imageUrl, title }: Book) => (
           <li key={id}>
-            <BookCard author={author} imageUrl={imageUrl} title={title} />
+            <BookCard author={author} imageUrl={imageUrl} title={title} onDelete={() => handleDelete(id)} />
           </li>
         ))}
       </ul>
