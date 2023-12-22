@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../../redux/authSlice';
 import { useNavigate } from 'react-router-dom';
-import { Input } from '../../components';
+import { Button, Input } from '../../components';
 import './Login.css';
 
 type FieldState = {
@@ -81,9 +81,10 @@ export function Login() {
         error={formData.password.error}
         onChange={handleChange}
       />
-      <button data-testId="login-button" onClick={handleLogin}>
-        Login
-      </button>
+
+      <div className="login__button__wrapper">
+        <Button onClick={handleLogin}>Login</Button>
+      </div>
     </section>
   );
 }

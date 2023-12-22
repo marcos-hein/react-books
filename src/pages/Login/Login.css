@@ -18,3 +18,9 @@
   margin-bottom: 1.5rem;
   align-self: flex-start;
 }
+
+.login__button__wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
