@@ -7,14 +7,17 @@ type BookCardProps = {
   title: string;
   author: string;
   imageUrl: string;
+  rented: boolean;
   onDelete?: () => void;
 };
 
-export function BookCard({ id, author, imageUrl, title, onDelete }: BookCardProps) {
+export function BookCard({ id, author, imageUrl, title, rented, onDelete }: BookCardProps) {
   return (
-    // TODO: reestilizar o componente Link para que ele fique com a aparência de um card
-    <div className="bookCard__wrapper">
-      <img src={imageUrl} alt={`Capa do livro ${title}`} />
+    <div className={`bookCard__wrapper ${rented ? '--rented' : ''}`}>
+      <div className="bookCard__image__wrapper">
+        <img src={imageUrl} alt={`Capa do livro ${title}`} />
+        {rented && <span className="bookCard__rented">Alugado</span>}
+      </div>
       <div className="bookCard__info">
         <h3 className="bookCard__title">{title}</h3>
         <p className="bookCard__author">{author}</p>
@@ -22,7 +25,7 @@ export function BookCard({ id, author, imageUrl, title, onDelete }: BookCardProp
 
       <Link to={`/books/${id}`} className="bookCard__linkOverlay" />
       <div className="bookCard__deleteButton__wrapper">
-        <DeleteButton bookTitle={title} onClick={onDelete} />
+        <DeleteButton bookTitle={title} onClick={onDelete} disabled={rented} />
       </div>
     </div>
   );

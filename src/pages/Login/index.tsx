@@ -60,30 +60,32 @@ export function Login() {
   }
   return (
     <section className="login__container">
-      <h2 className="login__heading">React Books</h2>
+      <div className="login__wrapper">
+        <h2 className="login__heading">React Books</h2>
 
-      <Input
-        name="username"
-        label="Usuário"
-        placeholder="Digite seu usuário"
-        // data-testId="input-username"
-        value={formData.username.value}
-        error={formData.username.error}
-        onChange={handleChange}
-      />
-      <Input
-        name="password"
-        type="password"
-        label="Senha"
-        placeholder="Digite a sua senha"
-        // data-testId="input-password"
-        value={formData.password.value}
-        error={formData.password.error}
-        onChange={handleChange}
-      />
+        <Input
+          name="username"
+          label="Usuário"
+          placeholder="Digite seu usuário"
+          value={formData.username.value}
+          error={formData.username.error}
+          onChange={handleChange}
+        />
+        <Input
+          name="password"
+          type="password"
+          label="Senha"
+          placeholder="Digite a sua senha"
+          value={formData.password.value}
+          error={formData.password.error}
+          onChange={handleChange}
+        />
 
-      <div className="login__button__wrapper">
-        <Button onClick={handleLogin}>Login</Button>
+        <div className="login__button__wrapper">
+          <Button onClick={handleLogin} isFullWidth>
+            Login
+          </Button>
+        </div>
       </div>
     </section>
   );

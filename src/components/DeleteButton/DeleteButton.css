@@ -17,3 +17,7 @@
   color: var(--red-500);
   opacity: 1;
 }
+
+.deleteButton[disabled] {
+  cursor: not-allowed;
+}
