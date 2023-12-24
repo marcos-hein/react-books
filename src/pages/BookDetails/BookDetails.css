@@ -1,17 +1,17 @@
-.bookDetails__wrapper {
+.bookDetails__container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.bookDetails__wrapper img {
+.bookDetails__container img {
   width: 100%;
   max-width: 304px;
   box-shadow: var(--blue-700) 0px 16px 24px -16px;
 }
 
-.bookDetails__wrapper.--rented img {
+.bookDetails__container.--rented img {
   filter: brightness(0.6);
 }
 
@@ -88,7 +88,7 @@
 }
 
 @media (min-width: 576px) {
-  .bookDetails__wrapper {
+  .bookDetails__container {
     flex-direction: row;
   }
 }

@@ -37,7 +37,7 @@ export function Books() {
   }, [searchTerm]);
 
   return (
-    <div className="books__wrapper">
+    <section className="books__container">
       <Input
         placeholder="Buscar por título ou autor"
         value={searchTerm}
@@ -58,6 +58,6 @@ export function Books() {
           </li>
         ))}
       </ul>
-    </div>
+    </section>
   );
 }

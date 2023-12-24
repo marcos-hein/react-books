@@ -17,7 +17,7 @@ export function BookDetails() {
 
   // TODO: criar fallback para quando não encontrar o livro
   return book ? (
-    <div className={`bookDetails__wrapper ${book.rented ? '--rented' : ''}`}>
+    <section className={`bookDetails__container ${book.rented ? '--rented' : ''}`}>
       <div className="bookDetails__image__wrapper">
         <img src={book.imageUrl} alt={book.title} />
         {book.rented && <span className="bookDetails__rented">Alugado</span>}
@@ -49,6 +49,6 @@ export function BookDetails() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   ) : null;
 }
