@@ -1,0 +1,28 @@
+.logo {
+  display: flex;
+  align-items: baseline;
+}
+
+.logo img {
+  width: 20px;
+}
+
+.logo span {
+  font-size: 1.5rem;
+  font-weight: 900;
+  line-height: 1rem;
+  letter-spacing: -2px;
+}
+
+@media (min-width: 576px) {
+  .logo img {
+    width: 24px;
+  }
+
+  .logo span {
+    font-size: 2rem;
+    font-weight: 900;
+    line-height: 1rem;
+    letter-spacing: -2px;
+  }
+}
