@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../redux/store';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Files, BookOpenText } from 'lucide-react';
 import { Button } from '../../components';
 import { toggleBookRental } from '../../redux/booksSlice';
@@ -8,6 +8,7 @@ import './BookDetails.css';
 
 export function BookDetails() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const book = useSelector((state: RootState) => state.books.list.find((book) => book.id === Number(id)));
 
@@ -15,7 +16,6 @@ export function BookDetails() {
     dispatch(toggleBookRental(Number(id)));
   }
 
-  // TODO: criar fallback para quando não encontrar o livro
   return book ? (
     <section className={`bookDetails__container ${book.rented ? '--rented' : ''}`}>
       <div className="bookDetails__image__wrapper">
@@ -43,7 +43,12 @@ export function BookDetails() {
             <Button onClick={handleToggleBookRental} isFullWidth>
               {book.rented ? 'Devolver' : 'Alugar'}
             </Button>
-            <Button variant="secondary" isFullWidth>
+            <Button
+              onClick={() => navigate(`/books/edit/${book.id}`)}
+              variant="secondary"
+              disabled={book.rented}
+              isFullWidth
+            >
               Editar
             </Button>
           </div>

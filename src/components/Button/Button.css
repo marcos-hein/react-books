@@ -12,6 +12,11 @@
   transition: background-color 0.2s ease-in-out;
 }
 
+.button[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 .button.--fullWidth {
   width: 100%;
 }

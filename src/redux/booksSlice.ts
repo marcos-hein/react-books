@@ -25,7 +25,7 @@ export const slice = createSlice({
   initialState,
   reducers: {
     create: (state, { payload: book }: PayloadAction<Omit<Book, 'rented'>>) => {
-      state.list.push({ ...book, rented: false });
+      state.list.push({ ...book, id: state.list.length + 1, rented: false });
     },
     edit: (state, { payload: book }: PayloadAction<Book>) => {
       const bookIndex = state.list.findIndex((b) => b.id === book.id);

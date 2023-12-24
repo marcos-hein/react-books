@@ -12,11 +12,6 @@ type FormData = {
   [K in keyof Omit<Book, 'id' | 'rented'>]: FieldState;
 };
 
-type FormProps = {
-  onSubmit: (book: Book) => void;
-  initialFormData?: FormData;
-};
-
 const defaultFormData: FormData = {
   title: { value: '', error: false },
   author: { value: '', error: false },
@@ -26,8 +21,28 @@ const defaultFormData: FormData = {
   summary: { value: '', error: false },
 };
 
-export function Form({ onSubmit, initialFormData = defaultFormData }: FormProps) {
+type FormProps = {
+  onSubmit: (book: Book) => void;
+  editBook?: Book;
+};
+
+function mountFormData(book: Book) {
+  return Object.entries(book).reduce((acc, [key, value]) => {
+    if (key === 'id' || key === 'rented') {
+      return acc;
+    }
+
+    return {
+      ...acc,
+      [key]: { value, error: false },
+    };
+  }, {} as FormData);
+}
+
+export function Form({ onSubmit, editBook }: FormProps) {
+  const initialFormData = editBook ? mountFormData(editBook) : defaultFormData;
   const [formData, setFormData] = useState<FormData>(initialFormData);
+
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
 
@@ -42,10 +57,9 @@ export function Form({ onSubmit, initialFormData = defaultFormData }: FormProps)
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-
     // Valida se os campos estão preenchidos
     const formDataEntries = Object.entries(formData).map(([key, field]) => {
-      if (!field.value.length) {
+      if (!String(field.value).trim().length) {
         return [key, { ...field, error: true }];
       }
       return [key, field];
@@ -65,7 +79,11 @@ export function Form({ onSubmit, initialFormData = defaultFormData }: FormProps)
       };
     }, {} as Book);
 
-    onSubmit(newBook);
+    if (editBook) {
+      onSubmit({ ...newBook, id: editBook.id });
+    } else {
+      onSubmit(newBook);
+    }
   }
 
   return (
@@ -126,7 +144,7 @@ export function Form({ onSubmit, initialFormData = defaultFormData }: FormProps)
       />
 
       <Button type="submit" isFullWidth>
-        Criar
+        {editBook ? 'Editar' : 'Criar'}
       </Button>
     </form>
   );
