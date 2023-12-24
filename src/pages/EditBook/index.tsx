@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Form } from '../../components';
+import { Form, Layout } from '../../components';
 import { Book, edit } from '../../redux/booksSlice';
 import { useNavigate, useParams } from 'react-router-dom';
 import { RootState } from '../../redux/store';
@@ -16,10 +16,10 @@ export function EditBook() {
     navigate(`/books/${id}`);
   }
   return (
-    <section className="editBook">
-      <h1>Edit Book</h1>
-
-      <Form onSubmit={handleEditBook} editBook={book} />
-    </section>
+    <Layout title="Editar Livro">
+      <section className="editBook">
+        <Form onSubmit={handleEditBook} editBook={book} />
+      </section>
+    </Layout>
   );
 }

@@ -1,0 +1,29 @@
+.bookNotFound {
+  max-width: 400px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+
+.bookNotFound h2 {
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+.bookNotFound p {
+  font-size: 1rem;
+  text-align: left;
+}
+
+@media (min-width: 576px) {
+  .bookNotFound h2 {
+    font-size: 2rem;
+  }
+
+  .bookNotFound p {
+    font-size: 1.5rem;
+  }
+}

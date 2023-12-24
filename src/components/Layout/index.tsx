@@ -3,7 +3,7 @@ import './Layout.css';
 
 type LayoutProps = {
   children: React.ReactNode;
-  title: string;
+  title?: string;
 };
 
 export function Layout({ children, title }: LayoutProps) {
@@ -11,7 +11,7 @@ export function Layout({ children, title }: LayoutProps) {
     <div className="layout">
       <Header />
       <main className="layout__main">
-        <h1 className="layout__heading">{title}</h1>
+        {title && <h1 className="layout__heading">{title}</h1>}
 
         {children}
       </main>

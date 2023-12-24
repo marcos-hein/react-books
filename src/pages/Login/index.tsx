@@ -20,8 +20,8 @@ export function Login() {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState<FormData>({
-    password: { value: 'a', error: false },
-    username: { value: 'a', error: false },
+    password: { value: '', error: false },
+    username: { value: '', error: false },
   });
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {

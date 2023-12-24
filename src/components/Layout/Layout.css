@@ -21,6 +21,25 @@
   margin-bottom: 1rem;
 }
 
+.layout__footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+  font-size: 0.8rem;
+  color: #999;
+}
+
+.layout__footer a {
+  color: var(--gray-600);
+  font-weight: 600;
+}
+
+.layout__footer a:hover {
+  text-decoration: underline;
+}
+
 @media (min-width: 576px) {
   .layout__main {
     padding: 0 2rem;

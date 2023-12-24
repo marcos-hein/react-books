@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../redux/store';
 import { Book, remove } from '../../redux/booksSlice';
-import { Input, BookCard, Layout } from '../../components';
+import { Input, BookCard, Layout, BookNotFound } from '../../components';
 import './Books.css';
 
 export function Books() {
@@ -44,21 +44,26 @@ export function Books() {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-
-        <ul className="books__list">
-          {books.map(({ author, id, imageUrl, title, rented }: Book) => (
-            <li key={id}>
-              <BookCard
-                id={id}
-                author={author}
-                imageUrl={imageUrl}
-                title={title}
-                rented={rented}
-                onDelete={() => handleDelete(id)}
-              />
-            </li>
-          ))}
-        </ul>
+        {books.length ? (
+          <ul className="books__list">
+            {books.map(({ author, id, imageUrl, title, rented }: Book) => (
+              <li key={id}>
+                <BookCard
+                  id={id}
+                  author={author}
+                  imageUrl={imageUrl}
+                  title={title}
+                  rented={rented}
+                  onDelete={() => handleDelete(id)}
+                />
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <div className="books__notFound">
+            <BookNotFound />
+          </div>
+        )}
       </section>
     </Layout>
   );
