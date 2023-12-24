@@ -1,7 +1,6 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { PrivateRoutes } from './routes/PrivateRoute';
 import { Books, BookDetails, Login, CreateBook, EditBook } from './pages';
-import './App.css';
 
 function App() {
   const router = createBrowserRouter([

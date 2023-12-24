@@ -1,0 +1,33 @@
+.layout {
+  width: 100%;
+}
+
+.layout__main {
+  width: 100%;
+  height: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.layout__heading {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 576px) {
+  .layout__main {
+    padding: 0 2rem;
+  }
+
+  .layout__heading {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+}

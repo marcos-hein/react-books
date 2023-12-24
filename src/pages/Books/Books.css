@@ -7,11 +7,17 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 0.5rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
   padding-bottom: 1rem;
 }
 
 .books__list li {
   display: flex;
   justify-content: center;
+}
+
+@media (min-width: 576px) {
+  .books__list {
+    margin-top: 2rem;
+  }
 }

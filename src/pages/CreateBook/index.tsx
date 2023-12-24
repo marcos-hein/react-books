@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { Form } from '../../components';
+import { Form, Layout } from '../../components';
 import { Book, create } from '../../redux/booksSlice';
 import { useNavigate } from 'react-router-dom';
 import './CreateBook.css';
@@ -13,10 +13,10 @@ export function CreateBook() {
     navigate('/books');
   }
   return (
-    <section className="createBook">
-      <h1>Create Book</h1>
-
-      <Form onSubmit={handleCreateBook} />
-    </section>
+    <Layout title="Criar Livro">
+      <section className="createBook">
+        <Form onSubmit={handleCreateBook} />
+      </section>
+    </Layout>
   );
 }

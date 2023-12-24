@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../../redux/authSlice';
 import { useNavigate } from 'react-router-dom';
-import { Button, Input } from '../../components';
+import { Button, Input, Logo } from '../../components';
 import './Login.css';
 
 type FieldState = {
@@ -61,7 +61,9 @@ export function Login() {
   return (
     <section className="login__container">
       <div className="login__wrapper">
-        <h2 className="login__heading">React Books</h2>
+        <div className="login__logo__wrapper">
+          <Logo />
+        </div>
 
         <Input
           name="username"

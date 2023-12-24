@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../redux/store';
 import { Book, remove } from '../../redux/booksSlice';
-import { Input, BookCard } from '../../components';
+import { Input, BookCard, Layout } from '../../components';
 import './Books.css';
 
 export function Books() {
@@ -37,27 +37,29 @@ export function Books() {
   }, [searchTerm]);
 
   return (
-    <section className="books__container">
-      <Input
-        placeholder="Buscar por título ou autor"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
+    <Layout title="Lista de Livros">
+      <section className="books__container">
+        <Input
+          placeholder="Buscar por título ou autor"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
 
-      <ul className="books__list">
-        {books.map(({ author, id, imageUrl, title, rented }: Book) => (
-          <li key={id}>
-            <BookCard
-              id={id}
-              author={author}
-              imageUrl={imageUrl}
-              title={title}
-              rented={rented}
-              onDelete={() => handleDelete(id)}
-            />
-          </li>
-        ))}
-      </ul>
-    </section>
+        <ul className="books__list">
+          {books.map(({ author, id, imageUrl, title, rented }: Book) => (
+            <li key={id}>
+              <BookCard
+                id={id}
+                author={author}
+                imageUrl={imageUrl}
+                title={title}
+                rented={rented}
+                onDelete={() => handleDelete(id)}
+              />
+            </li>
+          ))}
+        </ul>
+      </section>
+    </Layout>
   );
 }
