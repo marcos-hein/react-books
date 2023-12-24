@@ -1,0 +1,12 @@
+.form {
+  width: 100%;
+  max-width: 576px;
+  background-color: var(--white);
+  border: 1px solid var(--blue-500);
+  padding: 3rem;
+  border-radius: 0.25rem;
+}
+
+.form button {
+  margin-top: 1rem;
+}
