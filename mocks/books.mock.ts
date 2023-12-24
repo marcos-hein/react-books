@@ -19,7 +19,7 @@ export const BOOKS_MOCK: Book[] = [
     releaseYear: 1960,
     pageCount: 281,
     imageUrl: 'https://m.media-amazon.com/images/I/71smIoGNeiL._SL1500_.jpg',
-    rented: false,
+    rented: true,
     summary:
       'To Kill a Mockingbird é um clássico da literatura americana que aborda questões de racismo e injustiça em uma cidade do sul dos Estados Unidos durante a década de 1930. A história é contada pela perspectiva de uma criança, Scout Finch.',
   },
@@ -41,7 +41,7 @@ export const BOOKS_MOCK: Book[] = [
     releaseYear: 1967,
     pageCount: 417,
     imageUrl: 'https://m.media-amazon.com/images/I/71unfMNt5GL._SL1500_.jpg',
-    rented: false,
+    rented: true,
     summary:
       'Cem Anos de Solidão é uma obra-prima do realismo mágico que narra a história da família Buendía em Macondo. Gabriel Garcia Marquez explora a cultura latino-americana, eventos místicos e a complexidade das relações familiares.',
   },
@@ -63,7 +63,7 @@ export const BOOKS_MOCK: Book[] = [
     releaseYear: 1954,
     pageCount: 1178,
     imageUrl: 'https://m.media-amazon.com/images/I/91mMbE4XPkL._SL1500_.jpg',
-    rented: false,
+    rented: true,
     summary:
       'O Senhor dos Anéis é uma epopeia fantástica que segue a jornada de Frodo Baggins para destruir o Um Anel. J.R.R. Tolkien cria um mundo rico com personagens memoráveis, explorando temas de amizade, coragem e poder.',
   },
