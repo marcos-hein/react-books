@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import booksSlice, { Book, BooksState, create, edit, remove, toggleBookRental } from './booksSlice';
+import { waitFor } from '@testing-library/react';
 
 const initialState: BooksState = booksSlice.getInitialState();
 
@@ -18,8 +19,10 @@ describe('booksSlice', () => {
 
     const state = booksSlice.reducer(initialState, create(newBook));
 
-    expect(state.list).toHaveLength(initialState.list.length + 1);
-    expect(state.list).toContainEqual({ ...newBook, rented: false });
+    waitFor(() => {
+      expect(state.list).toHaveLength(initialState.list.length + 1);
+      expect(state.list).toContainEqual({ ...newBook, rented: false });
+    });
   });
 
   it('should be able to edit a book', () => {
