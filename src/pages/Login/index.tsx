@@ -68,6 +68,7 @@ export function Login() {
         <Input
           name="username"
           label="Usuário"
+          data-testid="input-username"
           placeholder="Digite seu usuário"
           value={formData.username.value}
           error={formData.username.error}
@@ -77,6 +78,7 @@ export function Login() {
           name="password"
           type="password"
           label="Senha"
+          data-testid="input-password"
           placeholder="Digite a sua senha"
           value={formData.password.value}
           error={formData.password.error}
