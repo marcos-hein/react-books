@@ -1,12 +1,12 @@
 import { describe, expect, it } from 'vitest';
 import { Login } from '.';
-import { renderWithRedux } from '../../utils/test-utils';
+import { renderWithProviders } from '../../utils/test-utils';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 describe('Login', () => {
   it('should render correctly', async () => {
-    const { store } = renderWithRedux(<Login />, { route: '/login' });
+    const { store } = renderWithProviders(<Login />, { route: '/login' });
 
     expect(store.getState().auth.isAuthenticated).toBeFalsy();
 

@@ -38,8 +38,9 @@ export function Books() {
 
   return (
     <Layout title="Lista de Livros">
-      <section className="books__container">
+      <section className="books__container" data-testid="books">
         <Input
+          data-testid="search-input"
           placeholder="Buscar por título ou autor"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
