@@ -14,10 +14,12 @@
   <a href="#tecnologias">Tecnologias</a>
 </p>
 
-<img src="./.github/images/login.png" width="300"/>
-<img src="./.github/images/list.png" width="300"/>
-<img src="./.github/images/details.png" width="300" />
-<img src="./.github/images/form.png" width="300"/>
+<div style="display:flex;">
+  <img src="./.github/images/login.png" width="300"/>
+  <img src="./.github/images/list.png" width="300"/>
+  <img src="./.github/images/details.png" width="300" />
+  <img src="./.github/images/form.png" width="300"/>
+</div>
 
 ## Funcionalidades
 
