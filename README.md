@@ -64,3 +64,5 @@ Esta aplicação utiliza:
 - Testing Library;
 - ESlint;
 - Prettier.
+
+  
